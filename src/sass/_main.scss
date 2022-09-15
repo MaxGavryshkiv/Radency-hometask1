@@ -1,0 +1,146 @@
+.container {
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.note-table-headear-item-icon {
+  width: 20px;
+  height: 20px;
+}
+.table-wrapper,
+.table-counter-wrapper {
+  margin-top: 10px;
+  max-height: 350px;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.table-counter-wrapper {
+  max-height: 400px;
+}
+
+.note-table,
+.note-counter-table {
+  border-radius: 10px;
+  width: 1200px;
+  max-height: 400px;
+
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0 1em;
+}
+
+th,
+td {
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  text-align: left;
+  padding: 5px;
+  height: 70px;
+}
+th:last-child,
+td:last-child {
+  border-right: solid 1px black;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+th:first-child,
+td:first-child {
+  border-left: solid 1px black;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+thead tr th {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.note-open-modal,
+.open-archive-modal {
+  position: absolute;
+  right: 12%;
+  width: 150px;
+  height: 50px;
+  border-radius: 35px;
+  border: solid 1px black;
+  background-color: white;
+}
+.note-open-modal:active,
+.open-archive-modal:active {
+  background-color: gray;
+  color: white;
+}
+
+.note-bttn {
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  border: 0;
+  border-radius: 50%;
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.note-bttn:active {
+  background-color: black;
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.edit-bttn {
+  background-image: url(../images/pencil.svg);
+}
+.edit-bttn:active {
+  background-image: url(../images/pencilWhite.svg);
+}
+.archive-bttn {
+  background-image: url(../images/archive.svg);
+}
+.archive-bttn:active {
+  background-image: url(../images/archiveWhite.svg);
+}
+.unarchive-bttn {
+  background-image: url(../images/archive.svg);
+}
+.unarchive-bttn:active {
+  background-image: url(../images/archiveWhite.svg);
+}
+.delete-bttn {
+  background-image: url(../images/trash.svg);
+}
+.delete-bttn:active {
+  background-image: url(../images/trashWhite.svg);
+}
+
+.icon {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  border: 0;
+  border-radius: 50%;
+  border: solid 1px black;
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 5px;
+}
+.idea-icon {
+  background-image: url(../images/idea.svg);
+}
+.thought-icon {
+  background-image: url(../images/random-thought.svg);
+}
+
+.task-icon {
+  background-image: url(../images/task-list.svg);
+}
+
+.td-alight {
+  display: flex;
+  align-items: center;
+}
