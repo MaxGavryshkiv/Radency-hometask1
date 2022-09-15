@@ -1,0 +1,45 @@
+<div class="backdrop is-hidden" data-modal>
+  <div class="modal white-bg">
+    <button type="button" class="modal-close">
+      <svg class="modal-close-icon">
+        <use href="./images/sprite.svg#close"></use>
+      </svg>
+    </button>
+
+    <form class="form">
+      <h2 class="form-title">Create a note</h2>
+      <label for="noteName" class="form-label">
+        <span>Note Name</span>
+        <input
+          type="text"
+          id="noteName"
+          name="noteName"
+          placeholder="Name"
+          required="required"
+        />
+      </label>
+
+      <label for="noteCategory" class="form-label">
+        <span>Note Category</span>
+        <select name="noteCategory" id="noteCategory" required="required">
+          <option value="">Choose Category</option>
+          <option value="Task">Task</option>
+          <option value="Random Thought">Random Thought</option>
+          <option value="Idea">Idea</option>
+        </select>
+      </label>
+
+      <label for="noteContent" class="form-label">
+        <span>Note Content</span>
+        <textarea
+          required="required"
+          name="noteContent"
+          id="noteContent"
+          placeholder="write your text"
+        ></textarea>
+      </label>
+
+      <button class="button" type="submit">Отправить</button>
+    </form>
+  </div>
+</div>
