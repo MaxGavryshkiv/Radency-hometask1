@@ -29,14 +29,18 @@ noteTable.addEventListener('click', e => {
   let elId = target.parentNode.parentNode.dataset.id;
 
   if (target.nodeName === 'BUTTON') {
-    if (target.classList.contains('edit-bttn')) {
-      editNote(elId);
-    }
-    if (target.classList.contains('archive-bttn')) {
-      archiveNote(elId);
-    }
-    if (target.classList.contains('delete-bttn')) {
-      deleteNote(elId);
+    try {
+      if (target.classList.contains('edit-bttn')) {
+        editNote(elId);
+      }
+      if (target.classList.contains('archive-bttn')) {
+        archiveNote(elId);
+      }
+      if (target.classList.contains('delete-bttn')) {
+        deleteNote(elId);
+      }
+    } catch (error) {
+      console.log(error.message);
     }
   }
 });
