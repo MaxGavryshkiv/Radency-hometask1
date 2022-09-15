@@ -1,0 +1,21 @@
+.table-modal-archive-wrapper {
+  margin-top: 10px;
+  max-height: 480px;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.archive-table {
+  border-radius: 10px;
+  width: 1200px;
+  // max-height: 400px;
+
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0 1em;
+}
+.archive-table-headear-item-icon {
+  width: 20px;
+  height: 20px;
+}
