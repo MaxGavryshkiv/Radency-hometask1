@@ -62,8 +62,8 @@ function noteRenderer(notes, tbody = noteTableTbody) {
 
 try {
   noteRenderer(notes);
-} catch (e) {
-  console.log(error.message);
+} catch {
+  console.log('Something went wrong');
 }
 
 export default noteRenderer;
