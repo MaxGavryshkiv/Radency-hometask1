@@ -4,23 +4,31 @@ import countOfAllNotes from './countOfAllNotes';
 
 import { openEditModal } from './openCloseModal';
 
-let archivedNotes;
-let notes;
-try {
-  notes = JSON.parse(localStorage.getItem('notes'));
-  archivedNotes = JSON.parse(localStorage.getItem('archivedNotes'));
-} catch {
-  console.log('addBttn');
-}
-
 const archivedTableTbody = document.querySelector('.archive-note-table-tbody');
 
 function editNote(id) {
+  let notes;
+  let archivedNotes;
+  try {
+    notes = JSON.parse(localStorage.getItem('notes'));
+    archivedNotes = JSON.parse(localStorage.getItem('archivedNotes'));
+  } catch {
+    console.log('addBttn');
+  }
   let indexOfNote = notes.findIndex(el => el.id === id);
+
   openEditModal(notes[indexOfNote]);
 }
 
 function archiveNote(id) {
+  let notes;
+  let archivedNotes;
+  try {
+    notes = JSON.parse(localStorage.getItem('notes'));
+    archivedNotes = JSON.parse(localStorage.getItem('archivedNotes'));
+  } catch {
+    console.log('addBttn');
+  }
   let indexOfNote = notes.findIndex(el => el.id === id);
   let archivedNote = notes.splice(indexOfNote, 1);
   archivedNotes.push(...archivedNote);
@@ -33,6 +41,14 @@ function archiveNote(id) {
 }
 
 function deleteNote(id) {
+  let notes;
+  let archivedNotes;
+  try {
+    notes = JSON.parse(localStorage.getItem('notes'));
+    archivedNotes = JSON.parse(localStorage.getItem('archivedNotes'));
+  } catch {
+    console.log('addBttn');
+  }
   let indexOfNote = notes.findIndex(el => el.id === id);
   notes.splice(indexOfNote, 1);
   pushToStorage(notes, 'notes');
@@ -42,6 +58,14 @@ function deleteNote(id) {
 }
 
 function deleteFromArchiveNote(id) {
+  let notes;
+  let archivedNotes;
+  try {
+    notes = JSON.parse(localStorage.getItem('notes'));
+    archivedNotes = JSON.parse(localStorage.getItem('archivedNotes'));
+  } catch {
+    console.log('addBttn');
+  }
   let indexOfNote = archivedNotes.findIndex(el => el.id === id);
   archivedNotes.splice(indexOfNote, 1);
   pushToStorage(archivedNotes, 'archivedNotes');
@@ -51,6 +75,14 @@ function deleteFromArchiveNote(id) {
 }
 
 function unarchiveNote(id) {
+  let notes;
+  let archivedNotes;
+  try {
+    notes = JSON.parse(localStorage.getItem('notes'));
+    archivedNotes = JSON.parse(localStorage.getItem('archivedNotes'));
+  } catch {
+    console.log('addBttn');
+  }
   let indexOfNote = archivedNotes.findIndex(el => el.id === id);
   let unarchivedNote = archivedNotes.splice(indexOfNote, 1);
   notes.push(...unarchivedNote);
