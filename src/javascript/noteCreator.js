@@ -1,14 +1,5 @@
 import pushToStorage from './localStorage';
 
-let notes;
-let archivedNotes;
-try {
-  notes = JSON.parse(localStorage.getItem('notes'));
-  archivedNotes = JSON.parse(localStorage.getItem('archivedNotes'));
-} catch {
-  console.log('note is notdefined');
-}
-
 import { closeModal } from './openCloseModal';
 import dateValidation from './dateValidation';
 import noteRenderer from './noteRenderer';
@@ -20,6 +11,15 @@ form.addEventListener('submit', noteCreator);
 
 function noteCreator(event) {
   event.preventDefault();
+
+  let notes;
+  let archivedNotes;
+  try {
+    notes = JSON.parse(localStorage.getItem('notes'));
+    archivedNotes = JSON.parse(localStorage.getItem('archivedNotes'));
+  } catch {
+    console.log('cant find notes');
+  }
 
   let noteName = form.elements.noteName.value;
   let noteCategory = form.elements.noteCategory.value;
@@ -51,9 +51,8 @@ function noteCreator(event) {
       pushToStorage(notes, 'notes');
 
       form.classList.replace('edit-form', 'form');
-      form.reset();
-      closeModal();
 
+      closeModal();
       noteRenderer(notes);
       countOfAllNotes(notes, archivedNotes);
     } catch {
@@ -74,9 +73,9 @@ function noteCreator(event) {
 
   try {
     notes.push(newNotes);
+
     pushToStorage(notes, 'notes');
 
-    form.reset();
     closeModal();
 
     noteRenderer(notes);

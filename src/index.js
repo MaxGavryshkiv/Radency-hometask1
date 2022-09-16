@@ -5,7 +5,6 @@ import './javascript/openCloseArchive';
 import './javascript/openCloseModal';
 import './javascript/noteRenderer';
 import './javascript/noteCreator';
-import './javascript/fillingOutForm';
 import './javascript/dateValidation';
 import './javascript/countOfSameCategoryNotes';
 import './javascript/countOfNotesRenderer';
