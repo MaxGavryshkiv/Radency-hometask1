@@ -2,10 +2,10 @@
   "name": "parcel-project",
   "version": "2.0.0",
   "description": "Radency homework 1",
-  "homepage": "",
+  "homepage": "https://github.com/MaxGavryshkiv/Radency-hometask1",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /parcel-project/"
+    "build": "parcel build src/*.html --public-url /Radency-hometask1/"
   },
   "keywords": [],
   "author": "Max Gavryshkiv",
