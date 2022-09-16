@@ -1,5 +1,11 @@
-import archivedNotes from './archivedNotes';
 import noteRenderer from './noteRenderer';
+
+let archivedNotes;
+try {
+  archivedNotes = JSON.parse(localStorage.getItem('archivedNotes'));
+} catch {
+  console.log('openArch');
+}
 
 const archivedTableTbody = document.querySelector('.archive-note-table-tbody');
 

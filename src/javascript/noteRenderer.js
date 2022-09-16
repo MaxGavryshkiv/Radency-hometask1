@@ -1,5 +1,3 @@
-import notes from './notes';
-
 import {
   nameValidation,
   contentValidation,
@@ -61,9 +59,10 @@ function noteRenderer(notes, tbody = noteTableTbody) {
 }
 
 try {
+  const notes = JSON.parse(localStorage.getItem('notes'));
   noteRenderer(notes);
 } catch {
-  console.log('Something went wrong');
+  console.log('Something went wrong noteRender');
 }
 
 export default noteRenderer;

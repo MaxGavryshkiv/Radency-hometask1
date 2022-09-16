@@ -1,5 +1,6 @@
 import './javascript/notes';
 import './javascript/archivedNotes';
+import './javascript/localStorage';
 import './javascript/openCloseArchive';
 import './javascript/openCloseModal';
 import './javascript/noteRenderer';
