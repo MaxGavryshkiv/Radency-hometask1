@@ -4,8 +4,8 @@ const archiveCounterTableBody = document.querySelector(
 
 function countOfNotesRenderer(notes, archivedNotes) {
   for (let i = 0; i < notes.length; i++) {
-    el = notes[i];
-    archEl = archivedNotes[i];
+    let el = notes[i];
+    let archEl = archivedNotes[i];
     if (el.name === archEl.name) {
       if (el.quantity === 0 && archEl === 0) {
         return;
