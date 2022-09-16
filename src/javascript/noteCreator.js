@@ -35,7 +35,7 @@ function noteCreator(event) {
   let newId = Math.random().toString(16).slice(2);
 
   if (form.classList.contains('edit-form')) {
-    objId = form.elements.noteName.dataset.id;
+    let objId = form.elements.noteName.dataset.id;
     let indexOfNote = notes.findIndex(el => el.id === objId);
     let editNotes = {
       id: `${form.elements.noteName.dataset.id}`,
