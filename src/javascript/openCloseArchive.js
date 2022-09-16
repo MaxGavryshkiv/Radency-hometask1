@@ -1,12 +1,5 @@
 import noteRenderer from './noteRenderer';
 
-let archivedNotes;
-try {
-  archivedNotes = JSON.parse(localStorage.getItem('archivedNotes'));
-} catch {
-  console.log('openArch');
-}
-
 const archivedTableTbody = document.querySelector('.archive-note-table-tbody');
 
 const openArchiveBttn = document.querySelector('.open-archive-modal');
@@ -18,6 +11,12 @@ function closeModal() {
   archiveModal.classList.add('is-hidden');
 }
 function openModal() {
+  let archivedNotes;
+  try {
+    archivedNotes = JSON.parse(localStorage.getItem('archivedNotes'));
+  } catch {
+    console.log('openArch');
+  }
   archiveModal.classList.remove('is-hidden');
   noteRenderer(archivedNotes, archivedTableTbody);
 }
