@@ -16,7 +16,7 @@ function noteRenderer(notes, tbody = noteTableTbody) {
   }
 
   for (let i = 0; i < notes.length; i++) {
-    el = notes[i];
+    let el = notes[i];
 
     let row = tbody.insertRow(-1);
     row.dataset.id = el.id;
