@@ -60,6 +60,10 @@ function noteRenderer(notes, tbody = noteTableTbody) {
   }
 }
 
-noteRenderer(notes);
+try {
+  noteRenderer(notes);
+} catch (e) {
+  console.log(error.message);
+}
 
 export default noteRenderer;
