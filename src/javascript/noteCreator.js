@@ -1,9 +1,18 @@
-import notes from './notes';
+import pushToStorage from './localStorage';
+
+let notes;
+let archivedNotes;
+try {
+  notes = JSON.parse(localStorage.getItem('notes'));
+  archivedNotes = JSON.parse(localStorage.getItem('archivedNotes'));
+} catch {
+  console.log('note is notdefined');
+}
 
 import { closeModal } from './openCloseModal';
 import dateValidation from './dateValidation';
 import noteRenderer from './noteRenderer';
-import counterOfAllNotes from './countOfAllNotes';
+import countOfAllNotes from './countOfAllNotes';
 
 const form = document.querySelector('.form');
 
@@ -36,14 +45,20 @@ function noteCreator(event) {
       content: `${noteContent}`,
       dates: `${noteDatesOfContent}`,
     };
-    notes.splice(indexOfNote, 1, editNotes);
 
-    form.classList.replace('edit-form', 'form');
-    form.reset();
-    closeModal();
+    try {
+      notes.splice(indexOfNote, 1, editNotes);
+      pushToStorage(notes, 'notes');
 
-    noteRenderer(notes);
-    counterOfAllNotes();
+      form.classList.replace('edit-form', 'form');
+      form.reset();
+      closeModal();
+
+      noteRenderer(notes);
+      countOfAllNotes(notes, archivedNotes);
+    } catch {
+      console.log('noteCreator Error edit');
+    }
 
     return;
   }
@@ -57,11 +72,16 @@ function noteCreator(event) {
     dates: `${noteDatesOfContent}`,
   };
 
-  notes.push(newNotes);
+  try {
+    notes.push(newNotes);
+    pushToStorage(notes, 'notes');
 
-  form.reset();
-  closeModal();
+    form.reset();
+    closeModal();
 
-  noteRenderer(notes);
-  counterOfAllNotes();
+    noteRenderer(notes);
+    countOfAllNotes(notes, archivedNotes);
+  } catch {
+    console.log('noteCreator Error');
+  }
 }

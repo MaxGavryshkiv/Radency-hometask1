@@ -1,6 +1,3 @@
-import archivedNotes from './archivedNotes';
-import notes from './notes';
-
 import countOfNotesRenderer from './countOfNotesRenderer';
 import countOfSameCategoryNotes from './countOfSameCategoryNotes';
 
@@ -8,7 +5,7 @@ const archiveCounterTableBody = document.querySelector(
   '.note-counter-table-tbody'
 );
 
-function counterOfAllNotes() {
+function countOfAllNotes(notes, archivedNotes) {
   archiveCounterTableBody.innerHTML = '';
   const notesQuantity = countOfSameCategoryNotes(notes);
   const archivedNotesQuantity = countOfSameCategoryNotes(archivedNotes);
@@ -16,9 +13,11 @@ function counterOfAllNotes() {
 }
 
 try {
-  counterOfAllNotes();
+  const notes = JSON.parse(localStorage.getItem('notes'));
+  const archivedNotes = JSON.parse(localStorage.getItem('archivedNotes'));
+  countOfAllNotes(notes, archivedNotes);
 } catch {
   console.log('Something went wrong');
 }
 
-export default counterOfAllNotes;
+export default countOfAllNotes;

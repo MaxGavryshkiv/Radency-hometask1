@@ -1,10 +1,17 @@
-import notes from './notes';
-import archivedNotes from './archivedNotes';
-
+import pushToStorage from './localStorage';
 import noteRenderer from './noteRenderer';
-import countedOfAllNotes from './countOfAllNotes';
+import countOfAllNotes from './countOfAllNotes';
 
 import { openEditModal } from './openCloseModal';
+
+let archivedNotes;
+let notes;
+try {
+  notes = JSON.parse(localStorage.getItem('notes'));
+  archivedNotes = JSON.parse(localStorage.getItem('archivedNotes'));
+} catch {
+  console.log('addBttn');
+}
 
 const archivedTableTbody = document.querySelector('.archive-note-table-tbody');
 
@@ -17,35 +24,42 @@ function archiveNote(id) {
   let indexOfNote = notes.findIndex(el => el.id === id);
   let archivedNote = notes.splice(indexOfNote, 1);
   archivedNotes.push(...archivedNote);
+  pushToStorage(notes, 'notes');
+  pushToStorage(archivedNotes, 'archivedNotes');
 
   noteRenderer(notes);
-  countedOfAllNotes();
+
+  countOfAllNotes(notes, archivedNotes);
 }
 
 function deleteNote(id) {
   let indexOfNote = notes.findIndex(el => el.id === id);
   notes.splice(indexOfNote, 1);
+  pushToStorage(notes, 'notes');
 
   noteRenderer(notes);
-  countedOfAllNotes();
+  countOfAllNotes(notes, archivedNotes);
 }
 
 function deleteFromArchiveNote(id) {
   let indexOfNote = archivedNotes.findIndex(el => el.id === id);
   archivedNotes.splice(indexOfNote, 1);
+  pushToStorage(archivedNotes, 'archivedNotes');
 
   noteRenderer(archivedNotes, archivedTableTbody);
-  countedOfAllNotes();
+  countOfAllNotes(notes, archivedNotes);
 }
 
 function unarchiveNote(id) {
   let indexOfNote = archivedNotes.findIndex(el => el.id === id);
   let unarchivedNote = archivedNotes.splice(indexOfNote, 1);
   notes.push(...unarchivedNote);
+  pushToStorage(archivedNotes, 'archivedNotes');
+  pushToStorage(notes, 'notes');
 
   noteRenderer(archivedNotes, archivedTableTbody);
   noteRenderer(notes);
-  countedOfAllNotes();
+  countOfAllNotes(notes, archivedNotes);
 }
 
 export {
