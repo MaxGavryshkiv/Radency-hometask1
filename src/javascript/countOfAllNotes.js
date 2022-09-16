@@ -1,5 +1,5 @@
-import archivedNotes from './archivedNotes.json';
-import notes from './notes.json';
+import archivedNotes from './archivedNotes';
+import notes from './notes';
 
 import countOfNotesRenderer from './countOfNotesRenderer';
 import countOfSameCategoryNotes from './countOfSameCategoryNotes';
@@ -15,6 +15,10 @@ function counterOfAllNotes() {
   countOfNotesRenderer(notesQuantity, archivedNotesQuantity);
 }
 
-counterOfAllNotes();
+try {
+  counterOfAllNotes();
+} catch {
+  console.log('Something went wrong');
+}
 
 export default counterOfAllNotes;

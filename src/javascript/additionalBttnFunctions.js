@@ -1,5 +1,5 @@
-import notes from './notes.json';
-import archivedNotes from './archivedNotes.json';
+import notes from './notes';
+import archivedNotes from './archivedNotes';
 
 import noteRenderer from './noteRenderer';
 import countedOfAllNotes from './countOfAllNotes';
