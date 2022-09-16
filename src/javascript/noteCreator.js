@@ -1,4 +1,4 @@
-import notes from './notes.json';
+import notes from './notes';
 
 import { closeModal } from './openCloseModal';
 import dateValidation from './dateValidation';

@@ -1,4 +1,4 @@
-import archivedNotes from './archivedNotes.json';
+import archivedNotes from './archivedNotes';
 import noteRenderer from './noteRenderer';
 
 const archivedTableTbody = document.querySelector('.archive-note-table-tbody');

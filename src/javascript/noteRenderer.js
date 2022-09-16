@@ -1,4 +1,4 @@
-import notes from './notes.json';
+import notes from './notes';
 
 import {
   nameValidation,
